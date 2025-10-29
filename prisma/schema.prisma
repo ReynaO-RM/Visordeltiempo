@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid()) // ID único
+  email     String   @unique // correo único
+  password  String // hash bcrypt
+  name      String? // nombre opcional
+  avatar    String? // imagen opcional
+  createdAt DateTime @default(now()) // fecha de registro
+  updatedAt DateTime @updatedAt // última actualización
+  reviews   Reviews[] // relación con reseñas
+}
+
+model Places {
+  id          Int     @id @default(autoincrement()) // ID único
+  slug        String  @unique // identificador único legible
+  title       String // nombre del lugar
+  subtitle    String? // subtítulo del lugar
+  city        String // ubicación del lugar
+  coverUrl    String // URL de la imagen de portada
+  description String // descripción del lugar
+  reviews    Reviews[] // relación con reseñas
+}
+
+
+model Reviews {
+  id        Int      @id @default(autoincrement()) // ID único
+  placeId   Int      // ID del lugar referenciado
+  userId    String   // ID del usuario que hizo la reseña
+  rating    Int      // calificación del 1 al 5
+  comment   String   // comentario de la reseña
+  createdAt DateTime @default(now()) // fecha de creación
+
+  user     User     @relation(fields: [userId], references: [id])
+  place    Places   @relation(fields: [placeId], references: [id])
+
+  @@index([placeId])
+  @@index([userId])
+}
