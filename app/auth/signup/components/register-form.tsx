@@ -30,10 +30,10 @@ const schema = z.object({
 
 export default function RegisterForm({
   onSuccess,
-  redirectTo = "/login",
+  redirectTo = "/auth/signin",
 }: {
   onSuccess?: (email: string) => void;
-  /** A dónde redirigir tras registro exitoso (por defecto /login) */
+  /** A dónde redirigir tras registro exitoso (por defecto /auth/signin) */
   redirectTo?: string;
 }) {
   const [values, setValues] = React.useState<{
@@ -187,7 +187,7 @@ export default function RegisterForm({
         </Button>
 
         <Typography variant="body2" color="text.secondary">
-          ¿Ya tienes cuenta? <a href="/login">Inicia sesión</a>
+          ¿Ya tienes cuenta? <a href="/auth/signin">Inicia sesión</a>
         </Typography>
       </Stack>
     </Box>

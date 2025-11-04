@@ -27,6 +27,8 @@ import HeaderAuth from "@/app/sections/home/components/header-auth";
 import { useSession } from "next-auth/react";
 import ReviewForm from "./review-form";
 import Comments from "./comments";
+import ThreeModelViewer from "./three-model-viewer";
+import ChatFloat from "@/app/sections/buble-chat";
 
 interface PlaceDetailProps {
   placeData: PlaceDetail;
@@ -281,6 +283,20 @@ export default function PlaceDetailDemo({ placeData }: PlaceDetailProps) {
           </Box>
         </Card>
 
+        {placeData.model && (
+          <Card
+            variant="outlined"
+            sx={{ mb: 3, borderRadius: 3, overflow: "hidden" }}
+          >
+            <CardContent>
+              <Typography variant="h6" fontWeight={700} gutterBottom>
+                Modelo 3D interactivo
+              </Typography>
+              <ThreeModelViewer url={placeData.model} />
+            </CardContent>
+          </Card>
+        )}
+
         {/* Comentarios */}
         <Comments comments={comments} loading={loading} />
 
@@ -317,6 +333,7 @@ export default function PlaceDetailDemo({ placeData }: PlaceDetailProps) {
 
         <Box sx={{ height: 24 }} />
       </Container>
+      <ChatFloat bottom={20} right={20} />
     </Box>
   );
 }

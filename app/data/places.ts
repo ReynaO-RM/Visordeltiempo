@@ -32,6 +32,7 @@ export type PlaceDetail = {
   };
   mapEmbed: string; // URL para embeber el mapa
   comments: Comment[];
+  model?: string; // 3D model URL or identifier
 };
 
 export type Comment = {
@@ -90,6 +91,7 @@ export const detailPlaces: Record<string, PlaceDetail> = {
         date: "2025-07-30",
       },
     ],
+    model: "/models/atlante_de_tula.glb",
   },
   "reloj-monumental": {
     id: "reloj-monumental",
@@ -137,6 +139,7 @@ export const detailPlaces: Record<string, PlaceDetail> = {
         date: "2025-07-28",
       },
     ],
+    model: "/models/reloj_monumental_de_pachuca.glb",
   },
   "distrito-minero": {
     id: "distrito-minero",
@@ -184,6 +187,7 @@ export const detailPlaces: Record<string, PlaceDetail> = {
         date: "2025-07-26",
       },
     ],
+    model: "/models/antigua_mina_de_camelia.glb",
   },
   "exconvento-san-francisco": {
     id: "exconvento-san-francisco",
@@ -231,6 +235,7 @@ export const detailPlaces: Record<string, PlaceDetail> = {
         date: "2025-07-29",
       },
     ],
+    model: "/models/templo_y_exconvento_de_san_francisco.glb",
   },
   "estadio-hidalgo": {
     id: "estadio-hidalgo",
@@ -278,5 +283,6 @@ export const detailPlaces: Record<string, PlaceDetail> = {
         date: "2025-07-27",
       },
     ],
+    model: "/models/estadio_hidalgo.glb",
   },
 };

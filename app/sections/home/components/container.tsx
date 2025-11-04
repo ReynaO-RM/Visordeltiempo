@@ -13,6 +13,7 @@ import {
 import React, { useEffect, useState } from "react";
 import HeaderAuth from "./header-auth";
 import PlaceCard from "./place-card";
+import ChatFloat from "../../buble-chat";
 
 export default function HomeContainer() {
   const [loading, setLoading] = useState(true);
@@ -97,6 +98,7 @@ export default function HomeContainer() {
           ))}
         </Grid>
       </Container>
+      <ChatFloat bottom={20} right={20} />
     </Box>
   );
 }
