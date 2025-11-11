@@ -128,14 +128,12 @@ export default function PlaceDetailDemo({ placeData }: PlaceDetailProps) {
       {/* AppBar simple */}
       <AppBar
         position="sticky"
-        color="inherit"
+        color="default"
         elevation={0}
         sx={{ borderBottom: "1px solid", borderColor: "divider" }}
       >
         <Toolbar>
-          <Typography variant="h6" fontWeight={700}>
-            <Link href="/">Visor del Tiempo</Link>
-          </Typography>
+          <Box component={"img"} src="/Logo.webp" height={40} />
           <Box sx={{ flexGrow: 1 }} />
           <HeaderAuth />
         </Toolbar>

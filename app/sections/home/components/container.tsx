@@ -50,14 +50,12 @@ export default function HomeContainer() {
     <Box>
       <AppBar
         position="sticky"
-        color="inherit"
+        color="default"
         elevation={0}
         sx={{ borderBottom: "1px solid", borderColor: "divider" }}
       >
         <Toolbar>
-          <Typography variant="h6" fontWeight={700}>
-            Visor del Tiempo
-          </Typography>
+          <Box component={"img"} src="/Logo.webp" height={40} />
           <Box sx={{ flexGrow: 1 }} />
           <HeaderAuth />
         </Toolbar>
